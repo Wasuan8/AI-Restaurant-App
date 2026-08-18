@@ -1,24 +1,66 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+import { CartProvider } from '@/components/CartContext';
+import { useFonts } from "expo-font";
+import { Stack, useRouter } from 'expo-router';
+import { useEffect, useState, useRef } from 'react';
+import { RootSiblingParent } from 'react-native-root-siblings';
+import { loadSession } from '../services/tokenStore';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const router = useRouter();
+  const [appIsReady, setAppIsReady] = useState(false);
+
+  const [fontsLoaded] = useFonts({
+    "Sora-Regular": require("../assets/fonts/Sora-Regular.ttf"),
+    "Sora-SemiBold": require("../assets/fonts/Sora-SemiBold.ttf"),
+    "Sora-Bold": require("../assets/fonts/Sora-Bold.ttf"),
+  });
+
+  useEffect(() => {
+    async function prepare() {
+      try {
+        await loadSession(); // Populates in-memory token/user data
+      } catch (e) {
+        console.warn("[RootLayout] Prepare error:", e);
+      } finally {
+        setAppIsReady(true);
+      }
+    }
+
+    if (fontsLoaded) {
+      prepare();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded || !appIsReady) {
+    return null;
+  }
+
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <CartProvider>
+      <RootSiblingParent>
+        <Stack>
+          <Stack.Screen name="index" 
+          options={{ headerShown: false }}
+          />
+          <Stack.Screen name="login" 
+          options={{ headerShown: false }}
+          />
+          <Stack.Screen name="signup" 
+          options={{ headerShown: false }}
+          />
+          <Stack.Screen name="admin" 
+          options={{ headerShown: false }}
+          />
+          <Stack.Screen name="details" 
+          options={{ headerShown: true }}
+          />
+          <Stack.Screen name="thankyou"
+          options={{ headerShown: false }}
+          />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
+      </RootSiblingParent>
+    </CartProvider>
   );
 }
