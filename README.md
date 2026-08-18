@@ -10,6 +10,37 @@ Welcome to **ApnaCafe**, a state-of-the-art, AI-driven coffee shop mobile applic
 
 ---
 
+## 📱 Application Screenshots
+
+Below is a detailed walkthrough of the ApnaCafe mobile application screens:
+
+### Onboarding & Authentication
+| Onboarding | Login | Signup |
+|:---:|:---:|:---:|
+| ![Onboarding](./images/Screen1.png) | ![Login](./images/Screen2.png) | ![Signup](./images/Screen3.png) |
+
+### Home & Menu Exploration
+| Home Feed | Search & Filter | Menu Details | Item Sizing |
+|:---:|:---:|:---:|:---:|
+| ![Home Feed](./images/Screen4.png) | ![Search & Filter](./images/Screen5.png) | ![Menu Details](./images/Screen6.png) | ![Item Sizing](./images/Screen7.png) |
+
+### AI Chatbot Assistant (Voice & Text)
+| Chat Greeting | Voice Recording | Cart Management |
+|:---:|:---:|:---:|
+| ![Chat Greeting](./images/Screen8.png) | ![Voice Recording](./images/Screen9.png) | ![Cart Management](./images/Screen10.png) |
+
+### Cart, Checkout & User Profile
+| Cart List | Checkout Details | Order Thank You | Profile |
+|:---:|:---:|:---:|:---:|
+| ![Cart List](./images/Screen10.png) | ![Checkout Details](./images/Screen11.png) | ![Order Thank You](./images/Screen12.png) | ![Profile](./images/Screen13.png) |
+
+### Admin Dashboard (Order Management & Chat Supervision)
+| Admin Order Tracking | Admin Conversational Logs |
+|:---:|:---:|
+| ![Admin Orders](./images/Screen14.png) | ![Admin Chats](./images/Screen15.png) |
+
+---
+
 ## 🛠️ Tech Stack & Architecture
 
 - **Frontend Mobile App**: Built with [Expo](https://expo.dev) & React Native (TypeScript) utilizing Expo Router for file-based routing.
