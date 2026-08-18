@@ -2,6 +2,12 @@
 
 Welcome to **ApnaCafe**, a state-of-the-art, AI-driven coffee shop mobile application. This project features a cross-platform mobile frontend and a high-performance Python FastAPI backend. The app integrates a voice-enabled multi-agent customer service assistant, product recommendations based on collaborative association rule mining, custom user authentication, and a complete admin management interface.
 
+## 📸 Screen Previews & AI Agent Architecture
+
+| Mobile Application Preview | AI Chatbot Agent Pipeline |
+|:---:|:---:|
+| ![ApnaCafe Mobile App Preview](./images/mobile_app.png) | ![Chatbot Agent Pipeline](./images/chatbot_agent_architecture.jpg) |
+
 ---
 
 ## 🛠️ Tech Stack & Architecture
